@@ -6,6 +6,7 @@ let pressure = document.querySelector("#pressure");
 let humidity = document.querySelector("#humidity");
 let windSpeed = document.querySelector("#wind");
 let condition = document.querySelector(".type")
+// let rainfall=document.querySelector(".rainfall")
 // For date 
 let time = new Date();
 const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
@@ -32,34 +33,8 @@ async function weatherData(place) {
     pressure.innerHTML = data.main.pressure + " hPa"
     windSpeed.innerHTML = Math.round(data.wind.speed * 3.6) + " km/hr";
     condition.innerHTML = data.weather[0].main;
-    //ICON CHANGES:
-    switch (data.weather[0].main) {
-        case "Rain":
-            document.querySelector(".condition").src = "/img/rain.svg";
-            break;
-        case "Clouds":
-            document.querySelector(".condition").src = "/img/cloud.svg";
-            break;
-        case "Drizzle":
-            document.querySelector(".condition").src = "/img/drizzle.svg";
-            break;
-        case "Mist":
-            document.querySelector(".condition").src = "/img/mist.svg";
-            break;
-            case "Haze":
-            document.querySelector(".condition").src = "/img/mist.svg";
-            break;
-        case "Snow":
-            document.querySelector(".condition").src = "/img/snow.svg";
-            break;
-        case "Thunderstorm":
-            document.querySelector(".condition").src = "/img/thunderstorm.svg";
-            break;
-        default:
-            document.querySelector(".condition").src = "/img/clear.svg";
-            break;
-
-    }
+    // rainfall.innerHTML=data.rain?.["1h"] || 0;
+    document.querySelector(".condition").src ="https://openweathermap.org/img/wn/"+data.weather[0].icon+"@2x.png";
 
 }
 if (!inputCity.value) {
