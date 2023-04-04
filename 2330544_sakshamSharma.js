@@ -15,6 +15,7 @@ document.querySelector("#date").innerHTML = dates;
 let hours = time.getHours();
 hours = hours < 10 ? "0" + hours : hours;
 const am = hours >= 12 ? "PM" : "AM";
+//Changing to 12 hours format
 hours = hours % 12;
 hours = hours === 0 ? 12 : hours;
 let min = time.getMinutes();
@@ -25,6 +26,7 @@ document.querySelector(".time").innerHTML = 'TIME:' + hours + ":" + min + am;
 async function weatherData(place) {
     place = place.toLowerCase();
     const response = await fetch("https://api.openweathermap.org/data/2.5/weather?q=+" + place + "&appid=7c23587871273ded50fd57bd9f6f7f6e&units=metric");
+    //checking for error
     if (!response.ok) {
         alert("city not found")
     }
@@ -36,10 +38,10 @@ async function weatherData(place) {
     pressure.innerHTML = data.main.pressure + " hPa"
     windSpeed.innerHTML = Math.round(data.wind.speed * 3.6) + " km/hr";
     condition.innerHTML = data.weather[0].main;
-    // rainfall.innerHTML=data.rain?.["1h"] || 0;
-    document.querySelector(".condition").src = "https://openweathermap.org/img/w/" + data.weather[0].icon + ".png";
+    document.querySelector(".condition").src = "https://openweathermap.org/img/w/" + data.weather[0].icon + ".png";//to change the icon
 
 }
+//adding default city if no city name is entered
 if (!inputCity.value) {
     weatherData("Montgomery COUNTY");
 }
