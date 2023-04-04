@@ -14,9 +14,12 @@ let dates = time.toLocaleDateString(undefined, options);
 document.querySelector("#date").innerHTML = dates;
 let hours = time.getHours();
 hours = hours < 10 ? "0" + hours : hours;
+const am = hours >= 12 ? "PM" : "AM";
+hours = hours % 12;
+hours = hours === 0 ? 12 : hours;
 let min = time.getMinutes();
 min = min < 10 ? "0" + min : min;
-document.querySelector(".time").innerHTML = 'TIME:' + hours + ":" + min + " Nepal Time";
+document.querySelector(".time").innerHTML = 'TIME:' + hours + ":" + min + am;
 
 // main functions:
 async function weatherData(place) {
@@ -34,7 +37,7 @@ async function weatherData(place) {
     windSpeed.innerHTML = Math.round(data.wind.speed * 3.6) + " km/hr";
     condition.innerHTML = data.weather[0].main;
     // rainfall.innerHTML=data.rain?.["1h"] || 0;
-    document.querySelector(".condition").src ="https://openweathermap.org/img/wn/"+data.weather[0].icon+"@2x.png";
+    document.querySelector(".condition").src = "https://openweathermap.org/img/w/" + data.weather[0].icon + ".png";
 
 }
 if (!inputCity.value) {

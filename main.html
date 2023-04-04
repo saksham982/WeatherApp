@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather app</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 </head>
 
 <body>
@@ -15,8 +16,11 @@
         <nav id="navbar">
             <h1>WEATHER APP</h1>
             <div class="searchbox">
+                <button id="search-btn" onclick="mainFunction()"><i class="material-icons">
+                  search
+                </i></button>
                 <input id="search" type="text" placeholder="enter a city ">
-                <button id="search-btn" onclick="mainFunction()"><img src="img/Vector.svg"></button>
+               
             </div>
         </nav>
     </header>
@@ -34,26 +38,39 @@
         <!-- -- ------------Sub section2----------  -->
         <div class="main2">
             <div class="data">
-                <img src="/img/calender.svg">
+                <!-- <img src="/img/calender.svg"> -->
+                <i class="material-icons">
+                    calendar_month
+                </i>
                 <p>DATE:</p> <span id="date"></span>
             </div>
             <div class="data">
-                <img src="/img/pressure.svg">
+                <!-- <img src="/img/pressure.svg"> -->
+                <i class="material-icons">
+                    compress
+                </i>
                 <p>PRESSURE:</p><span id="pressure"></span>
             </div>
         </div>
         <!-- -- ------------Sub section3----------  -->
         <div class="main3">
             <div class="data">
-                <img src="/img/humidity.svg">
+                <!-- <img src="/img/humidity.svg"> -->
+                <i class="material-icons">
+                    water_drop
+                </i>
                 <p>HUMIDITY:</p><span id="humidity"></span>
             </div>
             <div class="data">
-                <img src="/img/win d.svg">
+                <!-- <img src="/img/win d.svg"> -->
+                <i class="material-icons">
+                    air
+                </i>
                 <p>WIND SPEED:</p><span id="wind"></span>
             </div>
         </div>
     </div>
+    
     <script src="script.js"></script>
 </body>
 
