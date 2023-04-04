@@ -20,8 +20,7 @@ hours = hours % 12;
 hours = hours === 0 ? 12 : hours;
 let min = time.getMinutes();
 min = min < 10 ? "0" + min : min;
-setInterval(
-document.querySelector(".time").innerHTML = 'TIME:' + hours + ":" + min + am,1000)
+document.querySelector(".time").innerHTML = 'TIME:' + hours + ":" + min + am;
 
 // main functions:
 async function weatherData(place) {
