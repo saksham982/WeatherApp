@@ -26,7 +26,7 @@ document.querySelector(".time").innerHTML = 'TIME:' + hours + ":" + min + am,100
 // main functions:
 async function weatherData(place) {
     place = place.toLowerCase();
-    const response = await fetch("https://api.openweathermap.org/data/2.5/weather?q=+" + place + "&appid=7c23587871273ded50fd57bd9f6f7f6e&units=metric");
+    const response = await fetch("https://api.openweathermap.org/data/2.5/weather?q=+" + place + "&appid=yourapikey&units=metric");
     //checking for error
     if (!response.ok) {
         alert("city not found")
